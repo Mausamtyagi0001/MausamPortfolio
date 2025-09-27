@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+  command = ""
+
+[dev]
+  framework = ""
+  publish = "."
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 200
