@@ -1,17 +1,17 @@
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Mobile Navigation Toggle
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         });
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Scroll event listeners
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         updateActiveNavLink();
         updateNavbarBackground();
         animateOnScroll();
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate elements on scroll
     function animateOnScroll() {
         const elements = document.querySelectorAll('.section-title, .about-text, .contact-info, .project-card, .skill-category');
-        
+
         elements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
             const elementVisible = 150;
-            
+
             if (elementTop < window.innerHeight - elementVisible) {
                 element.style.opacity = '1';
                 element.style.transform = 'translateY(0)';
@@ -90,26 +90,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const email = formData.get('email');
             const message = formData.get('message');
-            
+
             // Simple validation
             if (!name || !email || !message) {
                 showNotification('Please fill in all fields', 'error');
                 return;
             }
-            
+
             if (!isValidEmail(email)) {
                 showNotification('Please enter a valid email address', 'error');
                 return;
             }
-            
+
             // Simulate form submission
             showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
             contactForm.reset();
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.innerHTML = '';
-        
+
         function type() {
             if (i < text.length) {
                 element.innerHTML += text.charAt(i);
@@ -206,33 +206,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Skill tags hover effect
     document.querySelectorAll('.skill-tag').forEach(tag => {
-        tag.addEventListener('mouseenter', function() {
+        tag.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.05)';
             this.style.transition = 'transform 0.2s ease';
         });
-        
-        tag.addEventListener('mouseleave', function() {
+
+        tag.addEventListener('mouseleave', function () {
             this.style.transform = 'scale(1)';
         });
     });
 
     // Project cards tilt effect
     document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mousemove', function(e) {
+        card.addEventListener('mousemove', function (e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-            
+
             this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
         });
     });
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateNavbarBackground();
 
     // Parallax effect for hero section (background-position based to avoid layout overlap)
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
         if (hero) {
@@ -252,9 +252,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add loading animation
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         document.body.classList.add('loaded');
-        
+
         // Animate elements in sequence
         const animateElements = document.querySelectorAll('.hero-content, .hero-image');
         animateElements.forEach((element, index) => {
@@ -264,61 +264,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }, index * 200);
         });
     });
+    // WhatsApp integration for contact form
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent normal form submission
 
-    // Add CSS for loading states
-    const style = document.createElement('style');
-    style.textContent = `
-        .notification-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        
-        .notification-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .notification-close:hover {
-            opacity: 0.8;
-        }
-        
-        .hero-content,
-        .hero-image {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .loaded .hero-content,
-        .loaded .hero-image {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .hamburger.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        
-        .hamburger.active .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-    `;
-    document.head.appendChild(style);
+        // Get form values
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let message = document.getElementById("message").value.trim();
+
+        // Encode values to safely pass in URL
+        name = encodeURIComponent(name);
+        email = encodeURIComponent(email);
+        message = encodeURIComponent(message);
+
+        let phoneNumber = "919821530215"; // Your WhatsApp number (with country code, no +)
+
+        // Construct WhatsApp URL
+        let whatsappURL = `https://wa.me/${phoneNumber}?text=Hello%20Mausam,%0AName:%20${name}%0AEmail:%20${email}%0AMessage:%20${message}`;
+
+        // Open WhatsApp in named window (reuse tab)
+        window.open(whatsappURL, "whatsappWindow");
+
+        // Optional: reset the form
+        document.getElementById("contact-form").reset();
+    });
+
+
+
 });
 
 // Note: Debounced scroll handler is managed inside DOMContentLoaded scope above.

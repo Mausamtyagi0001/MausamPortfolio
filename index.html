@@ -2,22 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mausam Tyagi - Frontend Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mausam Tyagi — Frontend Developer</title>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%232563eb'/%3E%3Ctext%20x='50'%20y='57'%20font-family='Inter,%20Arial,%20sans-serif'%20font-size='48'%20fill='%23fff'%20text-anchor='middle'%20font-weight='700'%3EMT%3C/text%3E%3C/svg%3E">
+
+    <meta name="description"
+        content="Mausam Tyagi — Frontend Developer. Angular (6–16), TypeScript, RxJS, HTML, CSS, responsive UI, enterprise web apps." />
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Mausam Tyagi — Frontend Developer" />
+    <meta property="og:description"
+        content="Angular (6–16), TypeScript, RxJS. Building enterprise-grade logistics applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:image" content="https://yourdomain.com/assets/mausam-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Preload fonts & critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <!-- Font Awesome (consider self-hosting for performance) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style"
+        onload="this.rel='stylesheet'">
+    <noscript>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    </noscript>
+
+    <!-- JSON-LD structured data (Person) -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mausam Tyagi",
+    "jobTitle": "Frontend Developer",
+    "url": "https://yourdomain.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/mausamtyagi0001/",
+      "https://github.com/Mausamtyagi0001"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dwarka, Delhi",
+      "postalCode": "110059",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+    <!-- Stylesheet (defer render-blocking by keeping it minimal or inline critical CSS) -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Consider a small inline critical CSS for hero to reduce FOUC -->
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#main-content"
+        style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+    <!-- Navigation (accessible) -->
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home">Mausam Tyagi</a>
             </div>
-            <div class="nav-menu" id="nav-menu">
+
+            <!-- Use a button for the hamburger for a11y -->
+            <button id="hamburger" class="hamburger" aria-controls="nav-menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+
+            <div class="nav-menu" id="nav-menu" role="navigation">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
@@ -26,11 +88,6 @@
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
             </div>
         </div>
     </nav>
@@ -256,7 +313,7 @@
     </section>
 
     <!-- Responsibilities Section -->
-    <section id="responsibilities" class="responsibilities">
+    <!-- <section id="responsibilities" class="responsibilities">
         <div class="container">
             <h2 class="section-title">Key Responsibilities</h2>
             <div class="resp-grid">
@@ -316,7 +373,157 @@
                 </div>
             </div>
         </div>
+    </section> -->
+    <section id="responsibilities" class="responsibilities">
+        <div class="container">
+            <h2 class="section-title">Key Responsibilities</h2>
+
+            <div class="resp-grid">
+                <!-- Core Angular -->
+                <div class="resp-card resp-card-1" aria-labelledby="core-angular">
+                    <div class="resp-icon"><i class="fas fa-code"></i></div>
+                    <h3 id="core-angular">Core Angular Development</h3>
+                    <ul>
+                        <li>Developed scalable components using Angular (v6→v16) and TypeScript with strong typing.</li>
+                        <li>Implemented both template-driven and reactive forms, including complex dynamic & nested form
+                            groups.</li>
+                        <li>Two-way binding, input/output, content projection and component composition for reusable UI.
+                        </li>
+                        <li>Optimized change detection using OnPush strategy and TrackBy to improve list rendering
+                            performance.</li>
+                    </ul>
+                </div>
+
+                <!-- API & CRUD -->
+                <div class="resp-card resp-card-2" aria-labelledby="api-crud">
+                    <div class="resp-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3 id="api-crud">API Integration & CRUD</h3>
+                    <ul>
+                        <li>Designed and consumed RESTful APIs using Angular HttpClient with typed request/response
+                            models.
+                        </li>
+                        <li>Implemented full CRUD flows (create, read, update, delete) with optimistic updates and
+                            server-side pagination.</li>
+                        <li>Centralized API error handling with retry/timeout strategies, user-facing error messages &
+                            fallbacks.</li>
+                        <li>Data caching and memoization for frequently requested resources to reduce API calls.</li>
+                    </ul>
+                </div>
+
+                <!-- Auth & Security -->
+                <div class="resp-card resp-card-3" aria-labelledby="auth-sec">
+                    <div class="resp-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 id="auth-sec">Authentication & Security</h3>
+                    <ul>
+                        <li>Implemented JWT-based authentication flows: login, logout, token refresh and silent renewal.
+                        </li>
+                        <li>Built route guards (CanActivate, CanLoad, CanDeactivate) and role-based access control.</li>
+                        <li>Secured API calls using Http Interceptors for token injection, global error interception and
+                            request logging.</li>
+                    </ul>
+                </div>
+
+                <!-- State, RxJS, Services -->
+                <div class="resp-card resp-card-4" aria-labelledby="state-rx">
+                    <div class="resp-icon"><i class="fas fa-wave-square"></i></div>
+                    <h3 id="state-rx">State Management & RxJS</h3>
+                    <ul>
+                        <li>Managed local component state with Subjects / BehaviorSubjects and shared state via
+                            services.
+                        </li>
+                        <li>Applied RxJS operators (switchMap, mergeMap, concatMap, exhaustMap, debounceTime,
+                            catchError)
+                            for robust async flows.</li>
+                        <li>Used lightweight state patterns; when necessary introduced NgRx-like patterns for
+                            predictable
+                            state and effects.</li>
+                        <li>LocalStorage/sessionStorage usage for small persisted settings and user preferences with
+                            serialization safeguards.</li>
+                    </ul>
+                </div>
+
+                <!-- UI / UX & Components -->
+                <div class="resp-card resp-card-5" aria-labelledby="ui-ux">
+                    <div class="resp-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 id="ui-ux">UI / UX & Component Patterns</h3>
+                    <ul>
+                        <li>Built accessible, responsive component libraries using Angular Material, Bootstrap and
+                            custom
+                            SCSS.</li>
+                        <li>Implemented reusable pipes, directives and custom validators to centralize logic and
+                            formatting.
+                        </li>
+                        <li>Created paginated, sortable and filterable data tables with server-side pagination, virtual
+                            scroll when needed.</li>
+                        <li>Implemented modals/dialogs, confirm flows, toast notifications and contextual tooltips for
+                            user
+                            feedback.</li>
+                    </ul>
+                </div>
+
+                <!-- App Shell, Nav & Dashboard -->
+                <div class="resp-card resp-card-6" aria-labelledby="app-shell">
+                    <div class="resp-icon"><i class="fas fa-columns"></i></div>
+                    <h3 id="app-shell">App Shell & Navigation</h3>
+                    <ul>
+                        <li>Designed application shell with sidebar navigation, top nav (responsive), breadcrumbs and
+                            route-aware highlighting.</li>
+                        <li>Implemented lazy-loaded feature modules and route preloading strategies to speed initial
+                            load.
+                        </li>
+                        <li>Built dashboard pages with charts, KPI cards and filterable grids for enterprise workflows.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- QA, Testing & CI -->
+                <div class="resp-card resp-card-1" aria-labelledby="qa-ci">
+                    <div class="resp-icon"><i class="fas fa-vial"></i></div>
+                    <h3 id="qa-ci">Testing, Quality & CI</h3>
+                    <ul>
+                        <li>Wrote unit tests for components and services using Jasmine & Karma; used TestBed and
+                            harnesses
+                            for robust components.</li>
+                        <li>Created end-to-end smoke tests with Cypress / Protractor (project dependent) for critical
+                            flows.
+                        </li>
+                        <li>Participated in code reviews, linting, static typing enforcement and CI pipelines for
+                            quality
+                            gates and deployments.</li>
+                    </ul>
+                </div>
+
+                <!-- Collaboration & SDLC -->
+                <div class="resp-card resp-card-2" aria-labelledby="team-sdlc">
+                    <div class="resp-icon"><i class="fas fa-users"></i></div>
+                    <h3 id="team-sdlc">Team & SDLC</h3>
+                    <ul>
+                        <li>Worked in Agile/Scrum teams — sprint planning, story sizing, daily standups and delivery
+                            commitments.</li>
+                        <li>Mentored junior devs, documented component APIs and maintained design/system tokens in
+                            shared
+                            libs.</li>
+                        <li>Performed performance profiling (Lighthouse), bundle-size optimization and tree-shaking to
+                            meet
+                            SLAs.</li>
+                        <li>Handled production incidents, rollbacks and hotfixes while improving observability and
+                            logging.
+                        </li>
+                    </ul>
+                </div>
+
+            </div> <!-- .resp-grid -->
+
+            <p style="margin-top:1rem;color:var(--muted);font-weight:600;">
+                Summary: Frontend engineer with ~3 years of experience building enterprise Angular applications — strong
+                in
+                component design, HTTP integrations, state & RxJS patterns, auth & security, performance optimizations,
+                and
+                delivering production-ready features end-to-end.
+            </p>
+        </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
@@ -408,6 +615,7 @@
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
